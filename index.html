@@ -3,71 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人知识库</title>
+    <title>我的个人主页</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Noto Sans SC', sans-serif; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        body { font-family: 'Inter', sans-serif; }
+        /* 模拟参考网站的链接样式 */
+        .link-hover { 
+            color: #2563eb; 
+            text-decoration: none; 
+            transition: all 0.2s;
+        }
+        .link-hover:hover { 
+            color: #1e40af; 
+            text-decoration: underline;
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-white text-gray-800">
 
-    <!-- 顶部导航 -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold text-indigo-600">MyWiki</a>
-            <div class="space-x-4">
-                <a href="https://github.com/你的用户名" target="_blank" class="text-slate-500 hover:text-indigo-600">GitHub</a>
+    <div class="max-w-6xl mx-auto px-6 py-12 md:py-20">
+        
+        <!-- 主布局：左侧个人信息，右侧主要内容 -->
+        <div class="flex flex-col md:flex-row gap-12">
+
+            <!-- 左侧边栏：个人简介 (Profile) -->
+            <div class="md:w-1/4 flex flex-col items-center md:items-start text-center md:text-left shrink-0">
+                <!-- 头像区域 -->
+                <div class="w-40 h-40 rounded-full overflow-hidden mb-6 shadow-md border border-gray-200">
+                    <!-- 这里请替换为你自己的头像 assets/images/avatar.jpg -->
+                    <img src="https://ui-avatars.com/api/?name=Me&background=0D8ABC&color=fff&size=256" alt="Profile" class="w-full h-full object-cover">
+                </div>
+
+                <h1 class="text-2xl font-bold text-gray-900 mb-2">你的名字</h1>
+                <p class="text-sm text-gray-600 mb-1">深度学习研究员 / 学生</p>
+                <p class="text-sm text-gray-500 mb-6">某某大学 (University Name)</p>
+
+                <!-- 社交链接/联系方式 -->
+                <div class="flex flex-col gap-2 text-sm w-full">
+                    <a href="mailto:your.email@example.com" class="flex items-center justify-center md:justify-start gap-2 text-gray-600 hover:text-blue-600 transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        Email Me
+                    </a>
+                    <a href="https://github.com/limnlee" target="_blank" class="flex items-center justify-center md:justify-start gap-2 text-gray-600 hover:text-gray-900 transition">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- 右侧主要内容区域 -->
+            <div class="md:w-3/4">
+                
+                <!-- 关于我 -->
+                <section class="mb-12">
+                    <h2 class="text-xl font-bold border-b border-gray-200 pb-2 mb-4">About Me</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        欢迎来到我的个人主页。我热衷于探索人工智能的边界，特别是在深度学习与统计理论的交叉领域。
+                        这里记录了我的核心课程笔记、研究资料以及英语学习资源。
+                    </p>
+                </section>
+
+                <!-- 核心模块 (模仿学术发表/Project列表风格) -->
+                <section>
+                    <h2 class="text-xl font-bold border-b border-gray-200 pb-2 mb-6">Coursework & Resources</h2>
+                    
+                    <div class="space-y-8">
+                        
+                        <!-- 项目 1: 矩阵分析 -->
+                        <div class="flex flex-col sm:flex-row gap-4 group">
+                            <!-- 模拟略缩图 (可选，如果不需要图片可删掉这个 div) -->
+                            <div class="w-full sm:w-48 h-32 bg-indigo-50 rounded-lg flex items-center justify-center shrink-0 border border-indigo-100">
+                                <span class="text-2xl">∑</span>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-lg font-semibold">
+                                    <a href="matrix.html" class="link-hover">矩阵分析与统计理论 (Matrix Analysis)</a>
+                                </h3>
+                                <p class="text-sm text-gray-500 mt-1">2025 • 核心笔记 • 考试重点</p>
+                                <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                                    深入解析和空间、直和空间、特征多项式、SVD分解及正态分布性质。包含了详细的定义、定理推导及考前冲刺要点。
+                                </p>
+                                <div class="mt-3 flex gap-2">
+                                    <a href="matrix.html" class="text-xs border border-blue-600 text-blue-600 px-2 py-1 rounded hover:bg-blue-600 hover:text-white transition">View Notes</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 项目 2: 英文课 -->
+                        <div class="flex flex-col sm:flex-row gap-4 group">
+                            <div class="w-full sm:w-48 h-32 bg-emerald-50 rounded-lg flex items-center justify-center shrink-0 border border-emerald-100">
+                                <span class="text-2xl">Aa</span>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-lg font-semibold">
+                                    <a href="english.html" class="link-hover">学术英语与阅读 (English Course)</a>
+                                </h3>
+                                <p class="text-sm text-gray-500 mt-1">2025 • 资料归档 • PDF</p>
+                                <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                                    课程核心阅读材料整理。包含课堂讲义与补充阅读的 PDF 文件归档，便于随时查阅与复习。
+                                </p>
+                                <div class="mt-3 flex gap-2">
+                                    <a href="english.html" class="text-xs border border-gray-400 text-gray-600 px-2 py-1 rounded hover:bg-gray-600 hover:text-white transition">View Materials</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 项目 3: 深度学习 -->
+                        <div class="flex flex-col sm:flex-row gap-4 group">
+                            <div class="w-full sm:w-48 h-32 bg-rose-50 rounded-lg flex items-center justify-center shrink-0 border border-rose-100">
+                                <span class="text-2xl">NN</span>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-lg font-semibold">
+                                    <a href="deep-learning.html" class="link-hover">深度学习前沿 (Deep Learning)</a>
+                                </h3>
+                                <p class="text-sm text-gray-500 mt-1">2025 • 论文 • 算法实现</p>
+                                <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                                    涵盖神经网络架构、优化算法及前沿论文阅读笔记。包含关键文献的 PDF 下载与个人理解。
+                                </p>
+                                <div class="mt-3 flex gap-2">
+                                    <a href="deep-learning.html" class="text-xs border border-gray-400 text-gray-600 px-2 py-1 rounded hover:bg-gray-600 hover:text-white transition">View Docs</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- 新闻/动态 (可选，模仿学术主页常有的 News 板块) -->
+                <section class="mt-12">
+                    <h2 class="text-xl font-bold border-b border-gray-200 pb-2 mb-4">News</h2>
+                    <ul class="text-sm space-y-2 text-gray-600">
+                        <li>
+                            <span class="font-mono text-gray-400 mr-2">[Dec 2025]</span>
+                            更新了矩阵分析的复习笔记。
+                        </li>
+                        <li>
+                            <span class="font-mono text-gray-400 mr-2">[Nov 2025]</span>
+                            上传了深度学习最新的论文阅读材料。
+                        </li>
+                        <li>
+                            <span class="font-mono text-gray-400 mr-2">[Oct 2025]</span>
+                            个人知识库网站上线。
+                        </li>
+                    </ul>
+                </section>
+
             </div>
         </div>
-    </nav>
+    </div>
 
-    <!-- 头部介绍 -->
-    <header class="max-w-4xl mx-auto mt-16 px-4 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-900">个人的学习与成长记录</h1>
-        <p class="text-lg text-slate-600 leading-relaxed">
-            欢迎来到我的知识库。这里汇集了我在矩阵分析、英语学习以及深度学习领域的笔记与资料。
-            <br>积跬步，以至千里。
-        </p>
-    </header>
-
-    <!-- 核心内容卡片 -->
-    <main class="max-w-6xl mx-auto mt-16 px-4 pb-20">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- 矩阵课卡片 -->
-            <a href="matrix.html" class="block bg-white rounded-2xl p-8 shadow-md border border-slate-100 transition-all duration-300 card-hover group">
-                <div class="h-12 w-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-6 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                </div>
-                <h2 class="text-2xl font-bold mb-3 text-slate-800">矩阵分析与统计</h2>
-                <p class="text-slate-500">包含复习重点：和空间、特征多项式、SVD分解、正态分布性质及假设检验等核心考点。</p>
-            </a>
-
-            <!-- 英文课卡片 -->
-            <a href="english.html" class="block bg-white rounded-2xl p-8 shadow-md border border-slate-100 transition-all duration-300 card-hover group">
-                <div class="h-12 w-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
-                </div>
-                <h2 class="text-2xl font-bold mb-3 text-slate-800">英文课</h2>
-                <p class="text-slate-500">课程资料归档。包含核心阅读材料与课堂讲义（PDF格式）。</p>
-            </a>
-
-            <!-- 深度学习卡片 -->
-            <a href="deep-learning.html" class="block bg-white rounded-2xl p-8 shadow-md border border-slate-100 transition-all duration-300 card-hover group">
-                <div class="h-12 w-12 bg-rose-100 rounded-lg flex items-center justify-center mb-6 text-rose-600 group-hover:bg-rose-600 group-hover:text-white transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                </div>
-                <h2 class="text-2xl font-bold mb-3 text-slate-800">深度学习</h2>
-                <p class="text-slate-500">前沿论文与基础理论。包含神经网络架构与优化算法等资料。</p>
-            </a>
-
-        </div>
-    </main>
-
-    <footer class="bg-white border-t border-slate-100 py-8 text-center text-slate-400 text-sm">
-        <p>© 2025 个人知识库. Hosted on GitHub Pages.</p>
+    <!-- 底部 -->
+    <footer class="text-center py-8 text-xs text-gray-400">
+        <p>© 2025 Based on AcademicPages template style.</p>
     </footer>
+
 </body>
 </html>
