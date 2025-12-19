@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英文课资料</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 h-screen flex flex-col">
+
+    <!-- 导航 -->
+    <nav class="bg-white shadow-sm flex-none">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center text-emerald-600 font-bold">
+                <span class="mr-2">←</span> 返回主页
+            </a>
+            <span class="text-slate-700 font-semibold">英文课 (English Course)</span>
+        </div>
+    </nav>
+
+    <!-- PDF 容器区域 -->
+    <main class="flex-grow p-4 md:p-6 overflow-hidden">
+        <div class="h-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- PDF 1 -->
+            <div class="bg-white rounded-xl shadow-lg border border-slate-200 flex flex-col overflow-hidden">
+                <div class="p-3 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
+                    <h3 class="font-medium text-slate-700">资料一</h3>
+                    <a href="assets/pdfs/english_1.pdf" download class="text-xs text-blue-500 hover:underline">下载</a>
+                </div>
+                <!-- 替换 src 为你的 PDF 路径 -->
+                <iframe src="assets/pdfs/english_1.pdf" class="w-full h-full bg-slate-100">
+                    <p class="p-4 text-center">您的浏览器不支持 PDF 预览，请下载查看。</p>
+                </iframe>
+            </div>
+
+            <!-- PDF 2 -->
+            <div class="bg-white rounded-xl shadow-lg border border-slate-200 flex flex-col overflow-hidden">
+                <div class="p-3 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
+                    <h3 class="font-medium text-slate-700">资料二</h3>
+                    <a href="assets/pdfs/english_2.pdf" download class="text-xs text-blue-500 hover:underline">下载</a>
+                </div>
+                <!-- 替换 src 为你的 PDF 路径 -->
+                <iframe src="assets/pdfs/english_2.pdf" class="w-full h-full bg-slate-100">
+                    <p class="p-4 text-center">您的浏览器不支持 PDF 预览，请下载查看。</p>
+                </iframe>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

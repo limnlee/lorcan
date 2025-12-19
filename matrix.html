@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>矩阵分析与统计理论 - 重点讲解</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 MathJax 用于渲染数学公式 -->
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .prose h3 { margin-top: 2rem; color: #4f46e5; font-weight: 600; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem; }
+        .prose li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 导航返回 -->
+    <nav class="bg-white shadow sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 py-4">
+            <a href="index.html" class="flex items-center text-indigo-600 hover:text-indigo-800 font-semibold">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                返回主页
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto mt-10 px-4 pb-20">
+        <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-900 border-b pb-6">矩阵分析与统计理论重点讲解</h1>
+            
+            <div class="prose max-w-none">
+                <!-- 提取的内容开始 -->
+                
+                <h2 class="text-2xl font-bold mt-8 mb-4 border-l-4 border-indigo-500 pl-3">一、和空间 与 直和空间的求法</h2>
+                
+                <h3>1. 和空间（Sum of Subspaces）</h3>
+                <p><strong>定义：</strong> 设 $U, V \subset \mathbb{R}^n$，则 $U + V = \{u+v \mid u\in U, v\in V\}$。</p>
+                <p class="font-semibold mt-2">求法核心思路：</p>
+                <ol class="list-decimal pl-5">
+                    <li>写出 $U$ 与 $V$ 的一般向量形式</li>
+                    <li>相加后合并参数</li>
+                    <li>判断张成空间（等价于求并集张成）</li>
+                </ol>
+                <div class="bg-gray-100 p-4 rounded-lg mt-4">
+                    <p><strong>例子：</strong> 设 $U = \text{span}\{(1,0,1),(0,1,1)\}, \quad V = \text{span}\{(1,1,0)\}$</p>
+                    <p>则 $U+V = \text{span}\{(1,0,1),(0,1,1),(1,1,0)\}$</p>
+                </div>
+
+                <h3>2. 直和空间（Direct Sum）</h3>
+                <p><strong>定义：</strong> $U \oplus V \iff U+V \text{ 且 } U\cap V = \{0\}$</p>
+                <p><strong>考试判断步骤：</strong></p>
+                <ol class="list-decimal pl-5">
+                    <li>先求 $U+V$</li>
+                    <li>再解方程 $u=v$，检查是否只有零解</li>
+                </ol>
+                <p class="mt-2 text-indigo-600 font-semibold">公式：$\dim(U+V)=\dim U + \dim V \iff U\oplus V$</p>
+
+                <hr class="my-8 border-gray-200">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4 border-l-4 border-indigo-500 pl-3">二、内积的计算方式</h2>
+                <h3>1. 标准内积</h3>
+                <p>$\langle x,y\rangle = x^Ty$</p>
+                
+                <h3>2. 加权内积</h3>
+                <p>$\langle x,y\rangle_A = x^TAy \quad (A>0)$</p>
+                <p><strong>注意：</strong> $A$ 必须是对称正定矩阵，常用于统计、广义最小二乘。</p>
+
+                <hr class="my-8 border-gray-200">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4 border-l-4 border-indigo-500 pl-3">三、特征/最小多项式与重数</h2>
+                <h3>1. 基础概念</h3>
+                <ul>
+                    <li><strong>特征多项式：</strong> $p(\lambda)=\det(\lambda I-A)$</li>
+                    <li><strong>代数重数：</strong> 特征值在特征多项式中的次数</li>
+                    <li><strong>几何重数：</strong> $\dim \ker(A-\lambda I)$</li>
+                    <li><strong>关系：</strong> $1 \le \text{几何重数} \le \text{代数重数}$</li>
+                </ul>
+
+                <h3>2. 最小多项式</h3>
+                <p>满足 $m(A)=0$ 的最低次数多项式。次数 $\le$ 代数重数。</p>
+
+                <h3>3. 初等因子</h3>
+                <p>求 Jordan 标准形，每个 Jordan 块对应一个初等因子 $(\lambda-\lambda_0)^k$。</p>
+
+                <hr class="my-8 border-gray-200">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4 border-l-4 border-indigo-500 pl-3">四、谱半径 与 奇异值</h2>
+                <p><strong>谱半径：</strong> $\rho(A)=\max |\lambda_i|$。结论：$\rho(A)\le \|A\|$。</p>
+                <p><strong>奇异值：</strong> $\sigma_i = \sqrt{\lambda_i(A^TA)}$。奇异值非负，对任意矩阵都存在。</p>
+
+                <hr class="my-8 border-gray-200">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4 border-l-4 border-indigo-500 pl-3">五、向量与矩阵求导（高频）</h2>
+                <h3>1. 向量对向量</h3>
+                <p>$\frac{\partial (x^TAx)}{\partial x}=(A+A^T)x$</p>
+                <p>若 $A$ 对称，则 $=2Ax$。</p>
+
+                <h3>2. 矩阵对矩阵</h3>
+                <p>$\frac{\partial \operatorname{tr}(AXB)}{\partial X}=A^TB^T$</p>
+
+                <hr class="my-8 border-gray-200">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4 border-l-4 border-indigo-500 pl-3">六、范数</h2>
+                <p><strong>诱导范数：</strong> $\|A\|=\max_{x\ne0}\frac{\|Ax\|}{\|x\|}$</p>
+                <div class="overflow-x-auto mt-4">
+                    <table class="min-w-full bg-white border border-gray-300">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="py-2 px-4 border-b text-left">范数</th>
+                                <th class="py-2 px-4 border-b text-left">计算方法</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b">1-范数</td>
+                                <td class="py-2 px-4 border-b">列绝对值和最大</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b">$\infty$-范数</td>
+                                <td class="py-2 px-4 border-b">行绝对值和最大</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b">2-范数</td>
+                                <td class="py-2 px-4 border-b">最大奇异值</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr class="my-8 border-gray-200">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4 border-l-4 border-indigo-500 pl-3">七、矩阵分解</h2>
+                <ul class="space-y-2">
+                    <li><strong>LU 分解：</strong> $A=LU$ (用于解线性方程组)</li>
+                    <li><strong>QR 分解：</strong> $A=QR$ (用于最小二乘)</li>
+                    <li><strong>特征分解：</strong> $A=P\Lambda P^{-1}$</li>
+                    <li><strong>SVD 分解：</strong> $A=U\Sigma V^T$</li>
+                </ul>
+
+                <hr class="my-8 border-gray-200">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4 border-l-4 border-indigo-500 pl-3">八、Smith 标准形</h2>
+                <p>形式：$\operatorname{diag}(d_1,d_2,\dots,d_r) \quad d_i|d_{i+1}$</p>
+                <p>适用于多项式矩阵或整数矩阵。步骤是通过初等行列变换，保证整除关系。</p>
+
+                <hr class="my-8 border-gray-200">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4 border-l-4 border-indigo-500 pl-3">九、广义逆 (Moore–Penrose)</h2>
+                <p>定义条件：$AA^+A=A, \quad A^+AA^+=A^+$</p>
+                <p>计算方法（满秩情况）：$(A^TA)^{-1}A^T$。最稳妥方法是用 SVD。</p>
+
+                <hr class="my-8 border-gray-200">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4 border-l-4 border-indigo-500 pl-3">十、统计理论部分</h2>
+                
+                <h3>1. 正态分布性质</h3>
+                <p>$X\sim N(\mu,\sigma^2)$。性质：线性变换仍为正态，样本均值仍服从正态。</p>
+
+                <h3>2. 卡方优度检验</h3>
+                <p>统计量：$\chi^2=\sum\frac{(O_i-E_i)^2}{E_i}$</p>
+                <p>自由度：类别数 - 参数数 - 1。</p>
+
+                <h3>3. 无偏估计与功效函数</h3>
+                <p><strong>Cramér–Rao 下界：</strong> $\operatorname{Var}(\hat\theta)\ge \frac1{I(\theta)}$</p>
+                <p><strong>功效函数：</strong> $\beta(\theta)=P(\text{拒绝 }H_0|\theta)$，描述检验区分能力。</p>
+
+                <h3>4. 回归与方差分析</h3>
+                <p>$SST = SSR + SSE$</p>
+                <p>方差分析统计量：组间（处理效应）、组内（随机误差）、总体（总变异）。</p>
+
+                <h3>5. 回归系数与预测</h3>
+                <p>回归系数：$\hat\beta=(X^TX)^{-1}X^Ty$</p>
+                <p>显著性检验：$F=\frac{SSR/p}{SSE/(n-p-1)}$</p>
+                <p>预测值：$\hat y_0=x_0^T\hat\beta$</p>
+
+                <!-- 提取的内容结束 -->
+            </div>
+        </div>
+    </main>
+</body>
+</html>
